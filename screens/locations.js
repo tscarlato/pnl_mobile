@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+//import axios from "axios";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {
     StyleSheet,
@@ -8,16 +9,41 @@ import {
     Switch,
 } from 'react-native';
 
+export const APP_CONFIG = {
+    server_base_url: 'https://localhost:5001/api/',
+  };
+
 export default class Locations extends Component {
 
     constructor(props) {
         super(props);
         this.showDoors = this.showDoors.bind(this);
         this.toggleShowDoors = this.toggleShowDoors.bind(this);
+       ///this.getLocationsList = this.getLocationsList.bind(this);
         this.state = {
             showDoors: false
           };
        }
+
+    
+      /* getLocationsList() {
+        //const { getIdToken } = this.props.auth;
+        //const headers = { authorization: `Bearer ${getIdToken()}` };
+    
+        axios
+          .get(APP_CONFIG.server_base_url + "client/doors"// { headers }
+          )
+          .then(res => {
+            console.log(res);
+            this.setState({ locations: res.data.locations });
+          })
+          .catch(err => console.log(err));
+      }
+
+      componentDidMount() {
+        this.getLocationsList();
+      }
+      */
 
     toggleShowDoors() {
         this.setState({showDoors:!this.state.showDoors})
